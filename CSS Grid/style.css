@@ -1,0 +1,77 @@
+* {
+  font-family: Arial;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr 0.4fr 0.4fr;
+  grid-template-rows: 120px 2fr 1fr;
+  grid-template-areas:
+    "sidebar navbar navbar navbar navbar"
+    "sidebar maincontent maincontent trendsforyou trendsforyou"
+    "sidebar maincontent maincontent whotofollow whotofollow";
+
+  gap: 10px;
+  width: 80%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 50px;
+    grid-template-areas:
+      "maincontent"
+      "navbar";
+
+    min-height: 100vh;
+  }
+  .childFirst {
+    padding: 0;
+  }
+  .childFirst p {
+    padding: 0;
+  }
+  .childSecond,
+  .childFourth,
+  .childFifth {
+    display: none;
+  }
+}
+
+p {
+  padding: 20px;
+}
+
+.childFirst {
+  background-color: lightblue;
+  grid-area: navbar;
+}
+
+.childSecond {
+  background-color: lightcoral;
+  grid-area: sidebar;
+}
+
+.childThird {
+  background-color: lightgreen;
+  grid-area: maincontent;
+}
+
+.childFourth {
+  background-color: lightgoldenrodyellow;
+  grid-area: whotofollow;
+}
+
+.childFifth {
+  background-color: lightgray;
+  grid-area: trendsforyou;
+}
